@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MemberEditor from './MemberEditor';
 import './TripCalendar.css';
 
 export default function TripForm({ onCreate }) {
@@ -8,6 +9,7 @@ export default function TripForm({ onCreate }) {
     endDate: '',
     budgetTotal: '',
   });
+  const [members, setMembers] = useState([]);
   const [error, setError] = useState('');
 
   function handleChange(e) {
@@ -30,13 +32,26 @@ export default function TripForm({ onCreate }) {
       return;
     }
 
+    if (Number(budgetTotal) <= 0) {
+      setError('Budget has to be more than $0.');
+      return;
+    }
+
+    if (members.length === 0) {
+      setError("Add at least one person who's going on the trip.");
+      return;
+    }
+
     setError('');
-    onCreate({
-      name: name.trim(),
-      startDate,
-      endDate,
-      budgetTotal: Number(budgetTotal),
-    });
+    onCreate(
+      {
+        name: name.trim(),
+        startDate,
+        endDate,
+        budgetTotal: Number(budgetTotal),
+      },
+      members
+    );
   }
 
   return (
@@ -76,6 +91,7 @@ export default function TripForm({ onCreate }) {
               id="tf-end-date"
               type="date"
               name="endDate"
+              min={formData.startDate || undefined}
               value={formData.endDate}
               onChange={handleChange}
             />
@@ -94,6 +110,15 @@ export default function TripForm({ onCreate }) {
             placeholder="4200"
           />
         </label>
+
+        <fieldset className="tf-fieldset">
+          <legend>Who's going?</legend>
+          <MemberEditor
+            members={members}
+            onAdd={(m) => setMembers((prev) => [...prev, m])}
+            onRemove={(id) => setMembers((prev) => prev.filter((m) => m.id !== id))}
+          />
+        </fieldset>
 
         {error && <p className="tf-error" role="alert">{error}</p>}
 
