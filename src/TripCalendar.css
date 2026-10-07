@@ -359,3 +359,241 @@
 .tf-form button:hover {
   background: #143a34;
 }
+/* ---- header actions ---- */
+
+.tc-header-right {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.tc-reset {
+  font-family: inherit;
+  font-size: 12px;
+  padding: 6px 10px;
+  border: 1px solid var(--tc-line);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--tc-teal);
+  cursor: pointer;
+}
+
+.tc-reset:hover {
+  background: #efe9d8;
+}
+
+/* ---- item status + add form extras ---- */
+
+.tc-status {
+  margin-top: 4px;
+  font-family: inherit;
+  font-size: 11px;
+  padding: 2px 8px;
+  border: 1px solid var(--tc-gold);
+  border-radius: 10px;
+  background: transparent;
+  color: #8a6d2f;
+  cursor: pointer;
+}
+
+.tc-status--confirmed {
+  border-color: var(--tc-moss);
+  background: var(--tc-moss);
+  color: #fff;
+}
+
+.tc-panel-note {
+  font-size: 13px;
+  color: #8a6d2f;
+  background: #f6efdc;
+  border: 1px solid var(--tc-gold);
+  border-radius: 3px;
+  padding: 10px;
+  margin: 0;
+}
+
+.tc-add-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: #6b6355;
+}
+
+.tc-split-pick {
+  border: 1px solid var(--tc-line);
+  border-radius: 3px;
+  padding: 6px 10px 8px;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-size: 13px;
+}
+
+.tc-split-pick legend {
+  font-size: 12px;
+  color: #6b6355;
+  padding: 0 4px;
+}
+
+.tc-split-pick label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+/* ---- group + cost split section ---- */
+
+.tc-group {
+  display: flex;
+  gap: 28px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--tc-line);
+}
+
+.tc-group-col {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .tc-group {
+    flex-direction: column;
+  }
+}
+
+.tc-section-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 18px;
+  margin: 0 0 12px;
+  color: var(--tc-teal);
+}
+
+.me-root {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.me-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.me-empty {
+  font-size: 13px;
+  color: #8a8171;
+  font-style: italic;
+}
+
+.me-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  padding: 4px 4px 4px 10px;
+  border: 1px solid var(--tc-line);
+  border-radius: 14px;
+  background: #fffdf8;
+}
+
+.me-chip-net {
+  font-size: 11px;
+}
+
+/* the trip form styles every button inside .tf-form, so these need the extra specificity */
+.me-root .me-chip-remove {
+  border: none;
+  background: none;
+  padding: 0 4px;
+  font-size: 14px;
+  color: #b6ac96;
+  cursor: pointer;
+}
+
+.me-root .me-chip-remove:hover {
+  background: none;
+  color: var(--tc-coral);
+}
+
+.me-add {
+  display: flex;
+  gap: 8px;
+}
+
+.me-add input {
+  flex: 1;
+  min-width: 0;
+  font-family: inherit;
+  font-size: 13px;
+  padding: 6px 8px;
+  border: 1px solid var(--tc-line);
+  border-radius: 3px;
+  background: #fffdf8;
+  color: var(--tc-ink);
+}
+
+.me-root .me-add button {
+  align-self: auto;
+  font-family: inherit;
+  font-size: 13px;
+  padding: 6px 12px;
+  border: 1px solid var(--tc-teal);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--tc-teal);
+  cursor: pointer;
+}
+
+.me-root .me-add button:hover {
+  background: #e8f0ea;
+}
+
+.tf-fieldset {
+  border: 1px solid var(--tc-line);
+  border-radius: 3px;
+  padding: 10px 12px 12px;
+  margin: 0;
+}
+
+.tf-fieldset legend {
+  font-size: 13px;
+  color: #6b6355;
+  padding: 0 4px;
+}
+
+.cs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.cs-table th {
+  text-align: left;
+  font-weight: 500;
+  font-size: 11px;
+  color: #8a8171;
+  padding: 0 6px 6px 0;
+  border-bottom: 1px solid var(--tc-line);
+}
+
+.cs-table td {
+  padding: 6px 6px 6px 0;
+  border-bottom: 1px solid #ece6d6;
+}
+
+.cs-pos { color: var(--tc-moss); }
+.cs-neg { color: var(--tc-coral); }
+
+.cs-note {
+  font-size: 12px;
+  color: #8a6d2f;
+  margin: 8px 0 0;
+}
