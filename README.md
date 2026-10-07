@@ -1,16 +1,22 @@
-# React + Vite
+# Quorum – Trip Calendar
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React + Vite prototype of the Quorum group trip planner: create a trip, add the people going, and plan flights, lodging, activities, and meals on a calendar while tracking the group budget and who owes what.
 
-Currently, two official plugins are available:
+## Running it
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+Then open http://localhost:5173.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- **Trip form** (`TripForm.jsx`) – name, dates, group budget, and the list of people going, with validation.
+- **Calendar** (`TripCalendar.jsx`) – month grid with trip days outlined; click a day to see and add items.
+  - Items can only be added on days inside the trip.
+  - Each item records who paid and who it's split between, and can be toggled pending/confirmed.
+- **Group + cost split** (`MemberEditor.jsx`, `CostSplit.jsx`, `split.js`) – add/remove people after the trip is created and see each person's share, what they've paid, and their balance.
+- **Saving** (`storage.js`) – the trip is saved to localStorage so a refresh keeps it. "New trip" clears it.
+- **Dates** (`dates.js`) – local-time date helpers (avoids the UTC shift from `toISOString()`).
